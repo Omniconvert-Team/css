@@ -4,9 +4,65 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"></script>
+
 	<title>Document</title>
+	<style>
+		.button {
+			background-color: yellow;
+			color: black;
+			display: inline-block;
+			padding: 1.5rem 1rem;
+			transition: background-color .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+			border: none;
+		}
+		.button:hover {
+			background-color: yellowgreen;
+		}
+		.button-shaped-right {
+			clip-path: polygon(0% 0%, calc(100% - 2rem) 0%, 100% 50%, calc(100% - 2rem) 100%, 0% 100%);
+			padding-right: calc(2rem + 1rem);
+		}
+		.button-shaped-right-alt {
+			--extra-padding: 1rem;
+			--arrow-width: 2rem;
+
+			clip-path: polygon(0% 0%, calc(100% - var(--arrow-width)) 0%, 100% 50%, calc(100% - var(--arrow-width)) 100%, 0% 100%);
+			padding-right: calc(var(--arrow-width) + var(--extra-padding));
+		}
+		.button-shaped-left-right {
+			--extra-padding: 1rem;
+			--arrow-width: 2rem;
+
+			background-color:aqua;
+			clip-path: polygon(0% 0%, calc(100% - var(--arrow-width)) 0%, 100% 50%, calc(100% - var(--arrow-width)) 100%, 0% 100%, var(--arrow-width) 50%);
+			padding-left: calc(var(--arrow-width) + var(--extra-padding));
+			padding-right: calc(var(--arrow-width) + var(--extra-padding));
+		}
+	</style>
 </head>
 <body>
-	
+	<main>
+		<button class="button button-shaped-right">This is a button</button>
+		<button class="button button-shaped-right-alt">Button with CSS variables</button>
+		<br/><br/>
+		<button class="button button-shaped-left-right">Button with left and right</button>
+	</main>
+
+	<sidebar>
+		<p>What does support look like?</p>
+
+		<p>For clip-path, you can find support numbers here: <a href="https://caniuse.com/mdn-css_properties_clip-path_basic_shape">
+			https://caniuse.com/mdn-css_properties_clip-path_basic_shape</a></p>
+
+		<p>Optionally:</p>
+		<p class="ciu_embed" data-feature="css-variables" data-periods="future_1,current,past_1,past_2,past_3,past_4,past_5" data-accessible-colours="false">
+			<picture>
+			<source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-variables.webp">
+			<source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-variables.png">
+			<img src="https://caniuse.bitsofco.de/image/css-variables.jpg" alt="Data on support for the css-variables feature across the major browsers from caniuse.com">
+			</picture>
+			</p>
+	</sidebar>
 </body>
 </html>
